@@ -19,8 +19,11 @@ class ShangwaStack:
         newStackItem.next = temp
         self.__dummy.next = newStackItem
 
-    def pop(self):
+    def pop(self) -> any | None:
         
+        if self.isEmpty():
+            return None
+
         poppedItem = self.__dummy.next
         self.__dummy.next = poppedItem.next
         poppedItem.next = None
