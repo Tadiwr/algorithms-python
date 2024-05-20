@@ -1,6 +1,3 @@
-from turtle import position
-
-
 class TwoArrayLinkedList:
     
     def __init__(self, size: int) -> None:

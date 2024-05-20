@@ -36,6 +36,44 @@ class OneArrayLinkedList:
             return True
 
         return False
+    
+    def find(self, target: any) -> int:
+
+        count = 1
+        currentIndex = self.__startPointer
+
+        while currentIndex != -1:
+            currentNode = self.__arr[currentIndex]
+            
+            if currentNode.data == target:
+                return count
+            
+            count += 1
+            currentIndex = currentNode.next
+
+        return -1
+    
+    def delete(self, target) -> bool:
+
+        if self.__arr[self.__startPointer].data == target:
+            self.__startPointer = self.__arr[self.__startPointer].next
+            return True
+        
+        currentIndex = self.__startPointer
+        prevIndex = currentIndex
+
+        while currentIndex != -1:
+            currentNode = self.__arr[currentIndex]
+
+            if currentNode.data == target:
+                self.__arr[prevIndex].next = currentNode.next 
+                return True
+            
+            prevIndex = currentIndex
+            currentIndex = currentNode.next
+
+        return False
+
             
     def printList(self):
 
@@ -54,16 +92,16 @@ class OneArrayLinkedList:
             print(outStr + " End")
 
 
-list = OneArrayLinkedList(10)
+list1 = OneArrayLinkedList(10)
 
-list.insert("A")
-list.insert("B")
-list.insert("C")
-list.insert("D")
-list.insert("E")
-list.insert("X")
+list1.insert("A")
+list1.insert("B")
+list1.insert("C")
+list1.insert("D")
+list1.insert("E")
+list1.insert("X")
 
-# list.delete("C")
-list.printList()
+list1.delete("B")
+list1.printList()
 
-# print("E's position: ", list.find("E"))
+print("E's position: ", list1.find("X"))
