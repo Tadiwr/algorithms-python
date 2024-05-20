@@ -26,7 +26,6 @@ class TwoArrayLinkedList:
 
         if self.isEmpty():
             self.__startPointer = self.__freePointer
-            self.__lastPointer = self.__freePointer
         else:
             self.__pointers[self.__lastPointer] = self.__freePointer
 
