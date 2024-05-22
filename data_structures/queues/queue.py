@@ -18,4 +18,20 @@ class ShangwaQueue:
         self.__rear.next = newItem
         self.__rear = self.__rear.next
 
-    # def dequeue(self):
+    def dequeue(self) -> any:
+
+        dequeuedItem = self.__front.next
+        self.__front.next = dequeuedItem.next
+        dequeuedItem.next = None
+        return dequeuedItem.data
+    
+    def printQueue(self):
+
+        if self.isEmpty():
+            print("The Queue is empty")
+        else:
+            curr = self.__front.next
+
+            while curr is not None:
+                print(curr.data)
+                curr = curr.next
