@@ -30,12 +30,12 @@ There are no fractions of people. At the end of each year, the population count 
 
 def nb_year(p0, percent, aug, p):
 
-    n = 1
+    n = 0
     
     while p0 < p:
-        p0 = int(p0 + (p0 * percent) + aug)
+        p0 = int(p0 + (p0 * (percent / 100)) + aug)
         n += 1
         
     return n
 
-nb_year(1500, 5, 100, 5000)
+print(nb_year(1500, 5, 100, 5000))

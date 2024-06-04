@@ -13,11 +13,16 @@ class LinkedList:
     def isEmpty(self) -> bool:
         return self.__head.next is None
 
-    def insert(self, value: any) -> bool:
+    def insert(self, value: any):
         newNode = ListNode(value)
 
         self.__last.next = newNode
         self.__last = self.__last.next
+
+    def insertInFront(self, value):
+        newNode = ListNode(value)
+        newNode.next = self.__head.next
+        self.__head.next = newNode
 
     def find(self, target: any) -> int:
         count = 1
@@ -62,17 +67,17 @@ class LinkedList:
         else:
             print("Linked List is Empty")
 
-letters = LinkedList()
+# letters = LinkedList()
 
-letters.insert("A")
-letters.insert("B")
-letters.insert("C")
-letters.insert("D")
-letters.insert("E")
-letters.delete("C")
+# letters.insert("A")
+# letters.insert("B")
+# letters.insert("C")
+# letters.insert("D")
+# letters.insert("E")
+# letters.delete("C")
 
-print(letters.find("B"))
-letters.printList()
+# print(letters.find("B"))
+# letters.printList()
 
 
 
